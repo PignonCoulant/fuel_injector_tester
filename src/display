@@ -1,0 +1,130 @@
+
+uint8_t second_display_id; 
+
+void change_second_display_id(void)
+{
+	second_display_id++; 
+	if(second_display_id == MAX_DISPLAY_ID) second_display_id = 0; 
+}
+
+uint8_t get_second_display_id(void)
+{
+	return second_display_id; 	
+}
+
+//store the byte to send to the display via SPI 
+display_digit[2][4]; 
+
+
+typedef struct{
+	
+	
+}DISPLAY_DATA; 
+
+// we give the display_digit variable data depending on the id. 
+
+	typedef struct{
+		uint8_t data; 
+		
+	}EXT_DATA; 
+
+		EXT_DATA *ext_data; 
+
+		get_external_data(second_display_id,ext_data); 		//we retrieve the data for the incoming message from the rally trip 
+		build_display(second_display_digit, data); 			//we look up the data to the bitpattern 
+		
+		c
+/////////////////
+
+uint8_t display_bit_pattern[25] = {
+	
+	
+}; 
+
+void get_ext_data(uint8_t id, EXT_DATA ext_data)
+{
+	//go fetch the data from the external 
+	switch(id) 
+	{
+		case CHRONO_DATA: 
+			get_chrono_data(ext_data);
+			break; 
+			
+		case PARTIAL_DISTANCE_DATA: 
+			get_external_data(id,
+			
+			
+
+}
+							  
+//this is used for storing the data from the main unit via UART
+// we pile up the data into a fifo buffer and empty it when there's things
+//to process
+// the id is important to know how to merge and dispatch data.
+// the number of byte indicates how many byte we're about to received next
+typedef struct{
+	uint8_t id; 
+	uint8_t number_of_byte; 
+	uint8_t data[8]; 
+}EXT_DATA; 
+
+EXT_DATA input_ext_data_buffer[16]; 
+EXT_DATA output_ext_data_buffer[16]; 	
+							  
+							  
+build_display(uint8_t id, EXT_DATA data)
+{
+	
+	
+	//seperate ten, hundreds, and stuff to make unique number for the display
+	
+	//distribute the 4 digit to the display we need 
+	
+	display_digit[id][0] = display_bit_pattern[]
+	display_digit[id][1] = display_bit_pattern[]
+	display_digit[id][2] = display_bit_pattern[]
+	display_digit[id][3] = display_bit_pattern[]
+	
+}
+
+void refresh_display(void)
+{
+	//ship the bytes to the SPI bus	
+	
+	
+	//handle the multixpling
+	
+}
+
+uint8_t display_dim_value[MAX_DIM_VALUE]= 
+{
+	100,
+	75,
+	50,
+	15, 
+	
+} 
+
+
+//at each press we change the PWM duty cycle, this reduces the time the SHift regsiter is on
+void change_display_dim(void)
+{
+	display_dim_id++; 
+	if(display_dim_id == MAX_DIM_VALUE) display_dim_id = 0; 
+	DISPLAY_DIM_REGISTER = display_dim_value[display_dim_id]; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
